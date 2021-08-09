@@ -1,7 +1,10 @@
 var video = " ";
+var mustache = " ";
+var noseX = 0;
+var noseY = 0;
 
 function preload(){
-
+     mustache = loadImage("download-removebg-preview.png")
 }
 
 function setup(){
@@ -17,6 +20,7 @@ function setup(){
 
 function draw() {
      image(video, 0, 0, 300, 300);
+     image(mustache, noseX, noseY, 50, 30);
 }
 
 function snap() {
@@ -32,5 +36,8 @@ function getPoses(result) {
           console.log(result);
           console.log("X value is " + result[0].pose.nose.x);
           console.log("y value is " + result[0].pose.nose.y);
+
+          noseX =  result[0].pose.nose.x - 30;
+          noseY = result[0].pose.nose.y + 10;
      }
 }
